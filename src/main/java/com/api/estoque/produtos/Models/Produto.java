@@ -2,20 +2,21 @@ package com.api.estoque.produtos.Models;
 
 import javax.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
-public class Fornecedor {
+public class Produto {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long ID;
 	
 	private String Nome;
+	private float Preco;
+	private int  Quantidade;
+	private String Descricao;
 	
 
 }
