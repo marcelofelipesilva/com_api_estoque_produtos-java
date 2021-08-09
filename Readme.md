@@ -11,3 +11,5 @@ projectlombok.
 springfox-swagger2.
 springfox-swagger-ui.
 mysql na versão 8.
+
+http://localhost:8080//swagger-ui.html
