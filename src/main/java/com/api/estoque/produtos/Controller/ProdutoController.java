@@ -21,9 +21,12 @@ import com.api.estoque.produtos.Repository.IProdutoRepository;
 public class ProdutoController {
 	
 	
-	@Autowired
+
 	private IProdutoRepository _produtoRepository;
-	
+
+	public ProdutoController(IProdutoRepository _produtoRepository) {
+		this._produtoRepository = _produtoRepository;
+	}
 
 	@GetMapping(value = "/produto", produces = "application/json")
 	public List<Produto> Exibir_Produto() {
