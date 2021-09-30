@@ -8,8 +8,12 @@ import com.api.estoque.produtos.Models.*;
 
 public class ProdutoService 
 {
-	@Autowired
+
 	private IProdutoRepository produto;
+
+	public ProdutoService(IProdutoRepository produto) {
+		this.produto = produto;
+	}
 
 	public List<Produto> findAll() {
 		return produto.findAll();
