@@ -11,8 +11,12 @@ public class FornecedorService {
 
 	
 	
-	@Autowired
+
 	private IFornecedorRepository fornecedor;
+
+	public FornecedorService(IFornecedorRepository fornecedor) {
+		this.fornecedor = fornecedor;
+	}
 
 	public List<Fornecedor> findAll() {
 		return fornecedor.findAll();
