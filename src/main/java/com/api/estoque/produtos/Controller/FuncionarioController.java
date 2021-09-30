@@ -20,8 +20,12 @@ import com.api.estoque.produtos.Repository.IFuncionarioRepository;
 @RestController("/funcionario")
 public class FuncionarioController {
 	
-	@Autowired
+
 	private IFuncionarioRepository _funcionarioRepository;
+
+	public FuncionarioController(IFuncionarioRepository _funcionarioRepository) {
+		this._funcionarioRepository = _funcionarioRepository;
+	}
 
 	@GetMapping(value = "/funcionario", produces = "application/json")
 	public List<Funcionario> Exibir_Funcionario() {
