@@ -22,8 +22,12 @@ import com.api.estoque.produtos.Models.*;
 @RestController("/fornecedor")
 public class FornecedorController {
 
-	@Autowired
+
 	private IFornecedorRepository _fornecedorRepository;
+
+	public FornecedorController(IFornecedorRepository _fornecedorRepository) {
+		this._fornecedorRepository = _fornecedorRepository;
+	}
 
 	@GetMapping(value = "/fornecedor", produces = "application/json")
 	public List<Fornecedor> Exibir_Fornecedor() {
