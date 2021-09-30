@@ -9,8 +9,12 @@ import com.api.estoque.produtos.Repository.*;
 
 public class FuncionarioService {
 	
-	@Autowired
+
 	private IFuncionarioRepository funcionario;
+
+	public FuncionarioService(IFuncionarioRepository funcionario) {
+		this.funcionario = funcionario;
+	}
 
 	public List<Funcionario> findAll() {
 		return funcionario.findAll();
