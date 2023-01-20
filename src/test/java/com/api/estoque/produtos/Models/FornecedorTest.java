@@ -1,47 +1,46 @@
 package com.api.estoque.produtos.Models;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.BeforeAll;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class FornecedorTest extends Fornecedor {
-    static Fornecedor fornecedor = new Fornecedor();
-    @BeforeAll
-    static void inserirDados(){
+    private Fornecedor fornecedorTest = new Fornecedor();
+    @BeforeEach
+     void inserirDados(){
 
-        fornecedor.setID(2L);
-        fornecedor.setNome("casa e video");
+        fornecedorTest.setID(2L);
+        fornecedorTest.setNome("casa e video");
     }
 
     @Test
-    @DisplayName("Teste pegar id")
+    @DisplayName("Testando pegar id")
     void testGetID() {
-        assertEquals(2L,fornecedor.getID());
+        assertEquals(2L,fornecedorTest.getID());
     }
 
     @Test
-    @DisplayName("Teste pegar Nome")
+    @DisplayName("Testando pegar Nome")
     void testGetNome() {
-      assertEquals("casa e video",fornecedor.getNome());
+      assertEquals("casa e video",fornecedorTest.getNome());
     }
 
     @Test
-    @DisplayName("Teste set id")
+    @DisplayName("Testando set id")
     void testSetID() {
-        Fornecedor f = new Fornecedor(1L,"casas bahia");
 
-        f.setID(2L);
-        assertEquals(2L,f.getID());
+        fornecedorTest.setID(3L);
+        assertEquals(3L,fornecedorTest.getID());
 
     }
 
     @Test
-    @DisplayName("Teste set Nome")
+    @DisplayName("Testando set Nome")
     void testSetNome() {
-        Fornecedor f = new Fornecedor(1L,"casas bahia");
-
-        f.setNome("americanas");
-        assertEquals("americanas",f.getNome());
+        fornecedorTest.setNome("americanas");
+        assertEquals("americanas",fornecedorTest.getNome());
     }
 }
