@@ -3,6 +3,7 @@ package com.api.estoque.produtos.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,6 +21,7 @@ import com.api.estoque.produtos.Models.*;
 
 
 @RestController("/fornecedor")
+@Scope("singleton")
 public class FornecedorController {
 
 
