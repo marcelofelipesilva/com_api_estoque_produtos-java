@@ -1,22 +1,14 @@
 package com.api.estoque.produtos.Controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.api.estoque.produtos.Models.Produto;
+import com.api.estoque.produtos.Repository.IProdutoRepository;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.api.estoque.produtos.Models.Produto;
-import com.api.estoque.produtos.Repository.IProdutoRepository;
+import java.util.List;
 
 @RestController("/produto")
 @Scope("singleton")
@@ -31,6 +23,7 @@ public class ProdutoController {
 	}
 
 	@GetMapping(value = "/produto", produces = "application/json")
+	@ResponseStatus(HttpStatus.OK)
 	public List<Produto> Exibir_Produto() {
 		return _produtoRepository.findAll();
 	}
@@ -45,6 +38,7 @@ public class ProdutoController {
 	}
 
 	@PostMapping(value = "/produto", produces = "application/json")
+	@ResponseStatus(HttpStatus.CREATED)
 	public <S extends Produto> S Cadastro_Produto(S entity) {
 
 		return _produtoRepository.saveAndFlush(entity);
