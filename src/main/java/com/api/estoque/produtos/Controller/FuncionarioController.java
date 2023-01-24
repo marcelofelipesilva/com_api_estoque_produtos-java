@@ -1,22 +1,14 @@
 package com.api.estoque.produtos.Controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.api.estoque.produtos.Models.Funcionario;
+import com.api.estoque.produtos.Repository.IFuncionarioRepository;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.api.estoque.produtos.Models.Funcionario;
-import com.api.estoque.produtos.Repository.IFuncionarioRepository;
+import java.util.List;
 
 @RestController("/funcionario")
 @Scope("singleton")
@@ -30,6 +22,7 @@ public class FuncionarioController {
 	}
 
 	@GetMapping(value = "/funcionario", produces = "application/json")
+	@ResponseStatus(HttpStatus.OK)
 	public List<Funcionario> Exibir_Funcionario() {
 		return _funcionarioRepository.findAll();
 	}
@@ -44,6 +37,7 @@ public class FuncionarioController {
 	}
 
 	@PostMapping(value = "/funcionario", produces = "application/json")
+	@ResponseStatus(HttpStatus.CREATED)
 	public <S extends Funcionario> S Cadastro_Funcionario(S entity) {
 
 		return _funcionarioRepository.saveAndFlush(entity);
