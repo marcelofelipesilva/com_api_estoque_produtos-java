@@ -1,22 +1,14 @@
 package com.api.estoque.produtos.Controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.api.estoque.produtos.Models.Fornecedor;
+import com.api.estoque.produtos.Repository.IFornecedorRepository;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.api.estoque.produtos.Repository.IFornecedorRepository;
-import com.api.estoque.produtos.Models.*;
+import java.util.List;
 
 
 
@@ -32,6 +24,7 @@ public class FornecedorController {
 	}
 
 	@GetMapping(value = "/fornecedor", produces = "application/json")
+	@ResponseStatus(HttpStatus.OK)
 	public List<Fornecedor> Exibir_Fornecedor() {
 		return _fornecedorRepository.findAll();
 	}
@@ -46,6 +39,7 @@ public class FornecedorController {
 	}
 
 	@PostMapping(value = "/fornecedor", produces = "application/json")
+	@ResponseStatus(HttpStatus.CREATED)
 	public <S extends Fornecedor> S Cadastro_Fornecedor(S entity) {
 
 		return _fornecedorRepository.saveAndFlush(entity);
